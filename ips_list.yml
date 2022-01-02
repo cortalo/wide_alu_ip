@@ -4,3 +4,6 @@ axi/axi:
 register_interface:
   commit: v0.3.1
   domain: [soc]
+common_cells:
+  commit: v1.20.0
+  domain: [soc, cluster]
