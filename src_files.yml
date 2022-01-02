@@ -1,0 +1,11 @@
+wide_alu:
+  incdirs:
+    - ../register_interface/include
+  files:
+    - gen_sv/wide_alu_reg_pkg.sv
+    - gen_sv/wide_alu_reg_top.sv
+    - rtl/wide_alu_pkg.sv
+    - rtl/wide_alu.sv
+    - rtl/wide_alu_top.sv
+  vlog_opts:
+    - -L register_interface_lib
