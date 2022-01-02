@@ -55,8 +55,8 @@ module wide_alu_top
     .reg_req_t(reg_req_t),
     .reg_rsp_t(reg_rsp_t)
     ) i_regfile (
-                 .clk_i(clk_i),
-                 .rst_ni(rst_ni),
+                 .clk_i,
+                 .rst_ni,
                  .devmode_i(1'b1),
 
                  //From the protocol converters to regfile
@@ -69,8 +69,8 @@ module wide_alu_top
     );
 
     wide_alu i_wide_alu (
-                         .clk_i(clk_i),
-                         .rst_ni(rst_ni),
+                         .clk_i,
+                         .rst_ni,
                          .trigger_i(reg_file_to_ip.ctrl1.trigger.q & reg_file_to_ip.ctrl1.trigger.qe),
                          .clear_err_i(reg_file_to_ip.ctrl1.clear_err.q & reg_file_to_ip.ctrl1.clear_err.qe),
                          .op_a_i(reg_file_to_ip.op_a),
@@ -79,7 +79,7 @@ module wide_alu_top
                          .deaccel_factor_i(reg_file_to_ip.ctrl2.delay.q),
                          .deaccel_factor_o(ip_to_reg_file.ctrl2.delay.d),
                          .op_sel_we_i(reg_file_to_ip.ctrl2.opsel.qe),
-                         .op_sel_i(reg_file_to_ip.ctrl2.opsel.q),
+                         .op_sel_i(wide_alu_pkg::optype_e'(reg_file_to_ip.ctrl2.opsel.q)),
                          .op_sel_o(ip_to_reg_file.ctrl2.opsel.d),
                          .result_o(ip_to_reg_file.result),
                          .status_o(ip_to_reg_file.status.d)
