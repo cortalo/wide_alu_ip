@@ -79,7 +79,7 @@ module wide_alu_top
                          .deaccel_factor_i(reg_file_to_ip.ctrl2.delay.q),
                          .deaccel_factor_o(ip_to_reg_file.ctrl2.delay.d),
                          .op_sel_we_i(reg_file_to_ip.ctrl2.opsel.qe),
-                         .op_sel_i(wide_alu_pkg::optype_e'(reg_file_to_ip.ctrl2.opsel.q)),
+                         .op_sel_i(reg_file_to_ip.ctrl2.opsel.q),
                          .op_sel_o(ip_to_reg_file.ctrl2.opsel.d),
                          .result_o(ip_to_reg_file.result),
                          .status_o(ip_to_reg_file.status.d)
